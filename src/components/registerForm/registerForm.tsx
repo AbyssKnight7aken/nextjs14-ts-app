@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import FormInput from "../formInput/FormInput";
+import register from "@/lib/actions/userActions";
 
 const formInputs = [
   {
@@ -24,7 +25,7 @@ const formInputs = [
   {
     id: 3,
     type: 'password',
-    name: 'Password',
+    name: 'password',
     placeholder: 'Password',
   },
   {
@@ -38,9 +39,9 @@ const formInputs = [
 export default function RegisterForm() {
   const [state, formAction] = useFormState(register, undefined);
 
-  function register(): void {
-    console.log('register form test!');
-  }
+  // function register(): void {
+  //   console.log('register form test!');
+  // }
 
   const router = useRouter();
 
@@ -56,7 +57,7 @@ export default function RegisterForm() {
 
       <div>
         <button>Register</button>
-        {/* {state?.error} */}
+        {state?.error}
         <Link href="/login">Have an account?  <b>Login</b></Link>
       </ div>
     </form>
