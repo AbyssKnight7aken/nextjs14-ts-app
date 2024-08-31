@@ -17,14 +17,12 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Password is required!'],
         minLength: [6, 'The password should be at least 6 characters long!'],
     },
-    img: {
-        data: {
-            type: Buffer,
-            contentType: String,
-        },
-    },
+    // img: {
+    //     data: {
+    //         type: Buffer,
+    //         contentType: String,
+    //     },
+    // },
 });
 
-const User = mongoose.model('User', userSchema);
-
-module.exports = User;
+export const User = mongoose.models?.User || mongoose.model('User', userSchema);
