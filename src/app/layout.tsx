@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
+import SessionWrapper from "@/components/sessionWrapper/sessionWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,14 +18,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className="container">
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
-      </body>
-    </html>
+    <SessionWrapper>
+      <html lang="en">
+        <body className={inter.className}>
+          <div className="container">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+        </body>
+      </html>
+    </SessionWrapper>
   );
 }
